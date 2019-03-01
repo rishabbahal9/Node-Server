@@ -1,0 +1,26 @@
+{
+  "name": "node-express-server",
+  "version": "1.0.0",
+  "description": "Making Node server with the help of EpressJS.",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishabbahal9/Node-Server.git"
+  },
+  "author": "Rishab Bahal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rishabbahal9/Node-Server/issues"
+  },
+  "homepage": "https://github.com/rishabbahal9/Node-Server#readme"
+}
