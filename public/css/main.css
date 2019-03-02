@@ -1,0 +1,12 @@
+body
+{
+    font-family: sans-serif;
+    margin: 0px;
+}
+h1
+{
+    text-align: center;
+    background-color: blue;
+    padding: 40px 10px;
+    color: #ffffff;
+}

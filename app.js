@@ -3,23 +3,30 @@ const http=require('http');
 const path=require('path');
 
 const express=require('express');
+const bodyParser=require('body-parser');
 
-const homeRouter=require('./routes/homeRoute');
 
-const port=3000;
+const adminRoutes=require('./routes/admin');
+const shopRoutes=require('./routes/shop');
+
+const port=3002;
 const app=express();
 
 //Creating middlewares
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname,'public')));
+
 app.use((req,res,next)=>{
     const url=req.url;
     console.log('Request: '+url);
     next();
 });
 
-app.use(homeRouter);
 
+app.use(adminRoutes);
+app.use(shopRoutes);
 app.use((req,res,next)=>{
-    res.sendFile(path.join(__dirname,'views','pageNotFound.html'));
+    res.status(404).sendFile(path.join(__dirname,'views','404.html'));
 });
 
 
