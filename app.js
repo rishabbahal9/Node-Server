@@ -6,11 +6,15 @@ const express=require('express');
 const bodyParser=require('body-parser');
 
 
-const adminRoutes=require('./routes/admin');
+const adminData=require('./routes/admin');
 const shopRoutes=require('./routes/shop');
 
 const port=3002;
 const app=express();
+
+//Setting View Engines
+app.set('view engine','pug');
+app.set('views','views');
 
 //Creating middlewares
 app.use(bodyParser.urlencoded({extended: false}));
@@ -23,10 +27,11 @@ app.use((req,res,next)=>{
 });
 
 
-app.use(adminRoutes);
+app.use(adminData.routes);
 app.use(shopRoutes);
 app.use((req,res,next)=>{
-    res.status(404).sendFile(path.join(__dirname,'views','404.html'));
+    //res.status(404).sendFile(path.join(__dirname,'views','404.html'));
+    res.render('404',{docTitle: '404: Page not found!'});
 });
 
 

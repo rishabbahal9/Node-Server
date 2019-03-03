@@ -3,10 +3,71 @@ body
     font-family: sans-serif;
     margin: 0px;
 }
-h1
+h1.header
 {
     text-align: center;
-    background-color: blue;
+    background-color: rgb(72, 3, 99);
     padding: 40px 10px;
     color: #ffffff;
+    margin: 0px;
+}
+
+a:link, a:hover, a:visited
+{
+    text-decoration: none;
+    padding: 15px 15px;
+    background-color: black;
+    color: #ffffff;
+    margin: 0px;
+    line-height: 30px;
+}
+a.active
+{
+    background-color: rgb(32, 32, 32);
+}
+a:hover
+{
+    background-color: rgb(150, 150, 150);
+    color: black;
+}
+
+nav
+{
+    background-color: black;
+    padding: 10px 5px;
+}
+main
+{
+    margin: 0px 10px;
+}
+div.formBox
+{
+    text-align: center;
+    margin: 20px;
+    padding: 40px 20px;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+label
+{
+    line-height: 30px;
+}
+input
+{
+    padding: 8px 5px;
+    border-radius: 2px;
+}
+button
+{
+    margin: 10px;
+}
+
+@media only screen and (min-width: 700px) 
+{
+    div.formBox
+    {
+        width: 50%;
+        display: block;
+        margin: 30px auto;
+    }
 }
