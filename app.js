@@ -13,7 +13,7 @@ const port=3002;
 const app=express();
 
 //Setting View Engines
-app.set('view engine','pug');
+app.set('view engine','ejs');
 app.set('views','views');
 
 //Creating middlewares
@@ -27,7 +27,7 @@ app.use((req,res,next)=>{
 });
 
 
-app.use(adminData.routes);
+app.use('/admin',adminData.routes);
 app.use(shopRoutes);
 app.use((req,res,next)=>{
     //res.status(404).sendFile(path.join(__dirname,'views','404.html'));

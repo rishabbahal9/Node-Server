@@ -1,0 +1,17 @@
+<%- include('includes/head.ejs'); -%>
+    <link rel="stylesheet" href="/css/main.css">
+<%- include('includes/head2.ejs'); -%>
+    <h1 class="header">Add Product</h1>
+    <nav>
+        <a href="/admin/add-product">Add product</a>
+        <a href="/admin">Admin-Home</a>
+        <a href="/">Shop</a>
+    </nav>
+    <div class="formBox">
+    <form action="/admin/add-product" method="post">
+        <label><b>Add-Product</b></label><br>
+        <input type="text" name="title" placeholder="eg: Chocolate"><br>
+        <button type="submit">submit</button>
+    </form>
+    </div>
+<%- include('includes/foot.ejs'); -%>
