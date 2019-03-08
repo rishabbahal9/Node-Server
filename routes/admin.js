@@ -2,30 +2,17 @@ const express=require('express');
 const path=require('path');
 
 const rootDir=require('./../util/path');
+const controllerProducts=require('./../controller/products')
+const controllerBasicRouting=require('./../controller/basicRouting')
 
 const router=express.Router();
 
-const products=[];
 
-router.get('/',(req,res,next)=>
-{
-    res.render('adminHome.ejs',{docTitle: 'AdminHome'});
-    //res.sendFile(path.join(rootDir,'views','add-product.html'));
-});
+router.get('/',controllerBasicRouting.adminHome);
 
 
-router.get('/add-product',(req,res,next)=>
-{
-    res.render('add-product',{docTitle: 'Add-Product',pathC: '/add-product'});
-    //res.sendFile(path.join(rootDir,'views','add-product.html'));
-});
+router.get('/add-product',controllerProducts.addProductGet);
 
-router.post('/add-product',(req,res,next)=>
-{
-    products.push({title: req.body.title});
-    console.log(req.body);
-    res.redirect('/admin');
-});
+router.post('/add-product',controllerProducts.addProductPost);
 
 exports.routes=router;
-exports.products=products;
