@@ -1,3 +1,5 @@
+const Product=require('./../model/product')
+
 module.exports.adminHome=(req,res,next)=>
 {
     res.render('adminHome.ejs',{docTitle: 'AdminHome'});
@@ -6,8 +8,6 @@ module.exports.adminHome=(req,res,next)=>
 
 module.exports.shop=(req,res,next)=>
 {
-    //console.log('shopjs',adminData.products);
-    //const products=adminData.products;
-    res.render('shop',{docTitle: 'MyShop',pathC: '/'});
-    //res.sendFile(path.join(rootDir,'views','shop.html'));
+    const products=Product.fetchAll();
+    res.render('shop',{docTitle: 'MyShop',pathC: '/',products: products});
 }

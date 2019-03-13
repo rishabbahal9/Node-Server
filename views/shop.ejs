@@ -5,4 +5,14 @@
     <nav>
         <a href="/">shop</a>
     </nav>
+    <p>
+        The List of Products is:<br>
+        <%for(let p of products)
+            {
+        %>
+        <ul>
+            <li><%=p%></li>
+        </ul>
+        <%}%>
+    </p>
 <%- include('includes/foot.ejs'); -%>

@@ -1,4 +1,5 @@
-const products=[];
+const Product=require('./../model/product')
+
 
 module.exports.addProductGet=(req,res,next)=>
 {
@@ -7,7 +8,7 @@ module.exports.addProductGet=(req,res,next)=>
 }
 module.exports.addProductPost=(req,res,next)=>
 {
-    products.push({title: req.body.title});
-    console.log(req.body);
+    const product=new Product(req.body.title);
+    product.saveTitle();
     res.redirect('/admin');
 }
