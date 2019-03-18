@@ -9,6 +9,6 @@ module.exports.addProductGet=(req,res,next)=>
 module.exports.addProductPost=(req,res,next)=>
 {
     const product=new Product(req.body.title);
-    product.saveTitle();
+    product.save();
     res.redirect('/admin');
 }
