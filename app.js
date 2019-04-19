@@ -5,11 +5,12 @@ const path=require('path');
 const express=require('express');
 const bodyParser=require('body-parser');
 
-
+const mongoConnect=require('./util/database').mongoConnect
 const adminData=require('./routes/admin');
 const shopRoutes=require('./routes/shop');
+const tryRoutes=require('./routes/try');
 
-const port=3002;
+const port=3000;
 const app=express();
 
 //Setting View Engines
@@ -29,14 +30,16 @@ app.use((req,res,next)=>{
 
 app.use('/admin',adminData.routes);
 app.use(shopRoutes);
+app.use('/try',tryRoutes);
 app.use((req,res,next)=>{
     //res.status(404).sendFile(path.join(__dirname,'views','404.html'));
     res.render('404',{docTitle: '404: Page not found!'});
 });
 
 
-
 const server=http.createServer(app);
 
-console.log('Listening to port '+port+':...');
-app.listen(port);
+mongoConnect(()=>{
+    console.log('Listening to port '+port+':...');
+    app.listen(port);
+})
