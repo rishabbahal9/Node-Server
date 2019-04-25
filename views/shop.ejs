@@ -1,18 +1,36 @@
 <%- include('includes/head.ejs'); -%>    
 <link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/products.css">
 <%- include('includes/head2.ejs'); -%>
-    <h1 class="header">Shop</h1>
+    <h1 class="header">Walmart</h1>
     <nav>
-        <a href="/">shop</a>
+        <a href="/" class="active">shop</a>
+        <a href="/cart">cart</a>
     </nav>
-    <p>
-        The List of Products is:<br>
-        <%for(let p of products)
+    <div class="container">
+       <%
+            for(let p of result)
             {
-        %>
-        <ul>
-            <li><%=p.title%></li>
-        </ul>
-        <%}%>
-    </p>
+       %>
+            <div class="box">
+                <div style="text-align: center; font-size: 30px;"><b><%=p.productName%></b></div>
+                <img alt="productImg" class="productImg" src="<%=p.imgUrl%>">
+                <p>
+                    <div class="container">
+                        <div style="width: 50%;text-align: left"><b>Price: <span style="color: green">₹<%=p.sellingPrice.toFixed(2)%></b></span><br><span style="color: #888888"><del><b>₹<%=p.markedPrice.toFixed(2)%></b></del></span></span></div>
+                        <div style="width: 50%;text-align: right"><b>Discount: <span style="color: red"><%=((p.markedPrice-p.sellingPrice)/p.sellingPrice*100).toFixed(2)%>%</b></span></div>
+                    </div>
+                </p>
+                <p>
+                    <%=p.description%>
+                </p>
+                <div class="container bttns">
+                    <a  href="" style=""><b>AddToCart</b></a>
+                    <a style="" href=""><b>Details</b></a>
+                </div>
+            </div>
+       <%
+            }
+       %>
+        </div>
 <%- include('includes/foot.ejs'); -%>

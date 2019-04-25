@@ -5,10 +5,10 @@ const path=require('path');
 const express=require('express');
 const bodyParser=require('body-parser');
 
-const mongoConnect=require('./util/database').mongoConnect
+const mongoose=require('mongoose')
 const adminData=require('./routes/admin');
 const shopRoutes=require('./routes/shop');
-const tryRoutes=require('./routes/try');
+
 
 const port=3000;
 const app=express();
@@ -30,7 +30,7 @@ app.use((req,res,next)=>{
 
 app.use('/admin',adminData.routes);
 app.use(shopRoutes);
-app.use('/try',tryRoutes);
+
 app.use((req,res,next)=>{
     //res.status(404).sendFile(path.join(__dirname,'views','404.html'));
     res.render('404',{docTitle: '404: Page not found!'});
@@ -39,7 +39,9 @@ app.use((req,res,next)=>{
 
 const server=http.createServer(app);
 
-mongoConnect(()=>{
+mongoose.connect('mongodb://127.0.0.1:27017/walmart',{useNewUrlParser: true})
+.then(()=>{
     console.log('Listening to port '+port+':...');
-    app.listen(port);
-})
+    app.listen(port)
+    })
+.catch(err=>{console.log(err);throw err;})
