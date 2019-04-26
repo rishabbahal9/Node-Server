@@ -38,10 +38,22 @@ img.productImg
 {
     background-color: #888888;
 }
+table.detailsTable
+{
+    display: block; 
+    margin:30px auto;
+    width: 90%;
+}
+
 @media screen and (min-width: 700px)
 {
     div.box
     {
         width: 30%;
-    }    
+    }
+    table.detailsTable
+    {
+        width: 50%;
+    }
+    
 }

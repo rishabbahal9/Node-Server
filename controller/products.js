@@ -35,3 +35,15 @@ module.exports.addProductPost=(req,res,next)=>
     })
     
 }
+
+module.exports.getDetails=(req,res,next)=>
+{
+    Product.findOne({_id:req.params.productId})
+    .then(result=>{
+        res.render('details.ejs',{result:result})
+    })
+    .catch(err=>{
+        if(err)
+            console.log(err)
+    })
+}

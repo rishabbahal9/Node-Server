@@ -9,11 +9,8 @@ module.exports.shop=(req,res,next)=>
 {
         Product.find()
         .then(result=>{
-            console.log(result)
+            //console.log(result)
             res.render('shop',{result: result});
-        })
-        
-        
-    
-    
+        })    
 }
+

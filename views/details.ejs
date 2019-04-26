@@ -1,0 +1,36 @@
+<%- include('includes/head.ejs'); -%>    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/products.css">
+<%- include('includes/head2.ejs'); -%>
+    <h1 class="header">Walmart</h1>
+    <nav>
+        <a href="/">shop</a>
+        <a href="/cart">cart</a>
+    </nav>
+    <div class="container">
+        <img  alt="productImg" class="productImg"  src="<%=result.imgUrl%>">
+        <table class="detailsTable">
+            <tr>
+                <td><b>Product: </b></td>
+                <td><%=result.productName%></td>
+            </tr>
+            <tr>
+                <td><b>Selling Price: </b></td>
+                <td>&#8377;<%=result.sellingPrice%></td>
+            </tr>
+            <tr>
+                <td><b>Discount: </b></td>
+                <td><%=(result.markedPrice-result.sellingPrice)/result.sellingPrice*100%>%</td>
+            </tr>
+            <tr>
+                <td><b>Description: </b></td>
+                <td><%=result.description%></td>
+            </tr>
+            <tr>
+                <td><b>Units available: </b></td>
+                <td><%=result.unitsAvailable%></td>
+            </tr>
+               
+        </table>
+    </div>
+<%- include('includes/foot.ejs'); -%>
