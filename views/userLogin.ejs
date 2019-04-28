@@ -1,0 +1,99 @@
+<%- include('includes/head.ejs'); -%>    
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/products.css">
+<%- include('includes/head2.ejs'); -%>
+    <h1 class="header">Walmart</h1>
+    <div class="container">
+        <div class="box container" style="padding: 0px;margin: 20px auto;">
+            <a href="" style="width: 50%;background-color: green;text-align: center;text-decoration: none;color: #ffffff;padding: 15px 0px;">Login</a>
+            <a href="" style="width: 50%;background-color:#bcbcbc;text-align: center;text-decoration: none;color: black;padding: 15px 0px;">SignUp</a>
+            <div style="width: 100%;padding: 10px 20px;" id="loginForm">
+                <form action="/userLoginSubmit" method="POST">
+                <table>
+                    <tr>
+                        <td>
+                            <label><b>Username:</b></label>
+                        </td>
+                        <td>
+                            <input name="userName" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label><b>Password:</b></label>
+                        </td>
+                        <td>
+                            <input name="password" type="password">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <button type="submit">Login</button>
+                        </td>
+                    </tr>
+                </table>
+                </form>
+            </div>
+            <div style="width: 100%;padding: 10px 20px;" id="signupForm">
+                <form action="/userSignupSubmit" method="POST">
+                <table>
+                    <tr>
+                        <td>
+                            <label><b>First name:</b></label>
+                        </td>
+                        <td>
+                            <input name="firstName" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label><b>Last name:</b></label>
+                        </td>
+                        <td>
+                            <input name="lastName" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label><b>Username:</b></label>
+                        </td>
+                        <td>
+                            <input name="userName" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label><b>Email:</b></label>
+                        </td>
+                        <td>
+                            <input name="email" type="email">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label><b>Password:</b></label>
+                        </td>
+                        <td>
+                            <input name="password" type="password">
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <label><b>Display Picture:</b></label>
+                        </td>
+                        <td>
+                            <input name="displayPicture" type="text" value="https://www.tenforums.com/geek/gars/images/2/types/thumb_sign-in.png">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <button type="submit">Signup</button>
+                        </td>
+                    </tr>
+                </table>
+                </form>
+            </div>
+        </div>
+    </div>
+<%- include('includes/foot.ejs'); -%>

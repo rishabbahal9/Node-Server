@@ -7,7 +7,7 @@ const bodyParser=require('body-parser');
 
 const mongoose=require('mongoose')
 const adminData=require('./routes/admin');
-const shopRoutes=require('./routes/shop');
+const userRoutes=require('./routes/user');
 
 
 const port=3000;
@@ -29,7 +29,7 @@ app.use((req,res,next)=>{
 
 
 app.use('/admin',adminData.routes);
-app.use(shopRoutes);
+app.use(userRoutes);
 
 app.use((req,res,next)=>{
     //res.status(404).sendFile(path.join(__dirname,'views','404.html'));

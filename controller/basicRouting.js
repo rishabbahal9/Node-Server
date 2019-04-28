@@ -1,4 +1,5 @@
 const Product=require('./../model/product')
+const User=require('./../model/product')
 
 module.exports.adminHome=(req,res,next)=>
 {
