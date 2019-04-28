@@ -7,9 +7,6 @@ exports.login=(req,res,next)=>{
 
 exports.userSignupSubmit=(req,res,next)=>{
 
-   
-
-
     var emailExistCheck=new Promise((resolve,reject)=>{
         User.find({email:req.body.email})
         .then(result=>{
@@ -90,5 +87,28 @@ exports.userLoginSubmit=(req,res,next)=>{
     })
     .catch(err=>{
         console.log(err)
+    })
+}
+
+
+
+module.exports.shop=(req,res,next)=>
+{
+        Product.find()
+        .then(result=>{
+            //console.log(result)
+            res.render('shop',{result: result});
+        })    
+}
+
+module.exports.getDetails=(req,res,next)=>
+{
+    Product.findOne({_id:req.params.productId})
+    .then(result=>{
+        res.render('details.ejs',{result:result})
+    })
+    .catch(err=>{
+        if(err)
+            console.log(err)
     })
 }

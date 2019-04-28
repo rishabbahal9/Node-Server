@@ -1,0 +1,33 @@
+<%- include('../includes/head.ejs'); -%>    
+<link rel="stylesheet" href="/css/main.css">
+<%- include('../includes/head2.ejs'); -%>
+    <h1 class="header">Admin Home</h1>
+    <nav>
+        <a href="/admin">Admin-Home</a>
+        <a href="/admin//admin-shop-view">Admin-Shop-view</a>
+    </nav>
+    <main>
+        <div class="container" style="display: flex;flex-wrap: wrap;">
+        <iframe src="http://localhost:3000/admin/admin-shop-view" style="width: 30vw;height: 80vh;display: block; margin: auto;"></iframe>
+        <div class="formBox">
+            <form action="/admin/add-product" method="post">
+                <label><b>productName:</b></label><br>
+                <input type="text" name="productName" placeholder=""><br>
+                <label><b>costPrice:</b></label><br>
+                <input type="number" name="costPrice" placeholder=""><br>
+                <label><b>sellingPrice:</b></label><br>
+                <input type="number" name="sellingPrice" placeholder=""><br>
+                <label><b>markedPrice:</b></label><br>
+                <input type="number" name="markedPrice" placeholder=""><br>
+                <label><b>description:</b></label><br>
+                <input type="text" name="description" placeholder=""><br>
+                <label><b>unitsAvailable:</b></label><br>
+                <input type="number" name="unitsAvailable" placeholder=""><br>
+                <label><b>imgUrl:</b></label><br>
+                <input type="text" name="imgUrl" placeholder=""><br>
+                <button type="submit">submit</button>
+            </form>
+        </div>
+        </div>
+    </main>
+<%- include('../includes/foot.ejs'); -%>

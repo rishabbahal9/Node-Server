@@ -1,24 +1,12 @@
-<%- include('includes/head.ejs'); -%>    
+<%- include('../includes/head.ejs'); -%>    
 <link rel="stylesheet" href="/css/main.css">
 <link rel="stylesheet" href="/css/products.css">
-<%- include('includes/head2.ejs'); -%>
+<%- include('../includes/head2.ejs'); -%>
     <h1 class="header">Walmart</h1>
     <nav>
-        <a href="/" class="active">shop</a>
-        <a href="/cart">cart</a>
+        <a href="/admin">Admin-Home</a>
+        <a href="/admin//admin-shop-view">Admin-Shop-view</a>
     </nav>
-    
-    <div class="box" style="text-align:center"> 
-            <img src="<%=user.displayPicture%>" style="max-width: 100%;width: 30%;border-radius: 50%;display: block;margin: auto;">
-            <span style="font-size: 25px;">
-            <%=user.firstName%>
-            <%=user.lastName%>
-            </span>
-            <div class="container">
-                <a href="/" style="width: 40%;display: block;margin: auto;background-color: green;color: white;text-decoration:none;padding: 5px;border-radius: 5px;">EditProfile</a>
-                <a href="/" style="width: 40%;display: block;margin: auto;background-color: green;color: white;text-decoration:none;padding: 5px;border-radius: 5px;">SignOut</a>
-            </div>
-    </div>
     <div class="container">
        <%
             for(let p of result)
@@ -37,7 +25,7 @@
                     <%=p.description%>
                 </p>
                 <div class="container bttns">
-                    <a  href=""><b>AddToCart</b></a>
+                    <a  href="/admin/deleteProduct/<%=p._id%>"><b>Delete</b></a>
                     <a href="/details/<%=p._id%>"><b>Details</b></a>
                 </div>
             </div>
@@ -45,4 +33,4 @@
             }
        %>
         </div>
-<%- include('includes/foot.ejs'); -%>
+<%- include('../includes/foot.ejs'); -%>

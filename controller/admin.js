@@ -1,10 +1,5 @@
 const Product=require('./../model/product')
 
-
-module.exports.addProductGet=(req,res,next)=>
-{
-    res.render('add-product',{docTitle: 'Add-Product',pathC: '/add-product'});
-}
 module.exports.addProductPost=(req,res,next)=>
 {
     const productName=req.body.productName;
@@ -36,14 +31,21 @@ module.exports.addProductPost=(req,res,next)=>
     
 }
 
-module.exports.getDetails=(req,res,next)=>
+module.exports.adminHome=(req,res,next)=>
 {
-    Product.findOne({_id:req.params.productId})
+    res.render('Admin/adminHome.ejs');
+}
+
+module.exports.adminShopView=(req,res,next)=>{
+    Product.find()
     .then(result=>{
-        res.render('details.ejs',{result:result})
-    })
-    .catch(err=>{
-        if(err)
-            console.log(err)
-    })
+        //console.log(result)
+        res.render('Admin/adminProductView',{result: result});
+    })    
+}
+
+module.exports.deleteProduct=(req,res,next)=>{
+    Product.findByIdAndRemove(req.params.productId)
+    .then(r=>{res.redirect('/admin/admin-shop-view')})
+    .catch(err=>{console.log(err)})
 }

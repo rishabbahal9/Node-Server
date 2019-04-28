@@ -2,17 +2,15 @@ const express=require('express');
 const path=require('path');
 
 const rootDir=require('./../util/path');
-const controllerProducts=require('./../controller/products')
-const controllerBasicRouting=require('./../controller/basicRouting')
+
+const controllerAdmin=require('./../controller/admin')
 
 const router=express.Router();
 
 
-router.get('/',controllerBasicRouting.adminHome);
-
-
-router.get('/add-product',controllerProducts.addProductGet);
-
-router.post('/add-product',controllerProducts.addProductPost);
+router.get('/',controllerAdmin.adminHome);
+router.post('/add-product',controllerAdmin.addProductPost);
+router.get('/admin-shop-view',controllerAdmin.adminShopView);
+router.get('/deleteProduct/:productId',controllerAdmin.deleteProduct);
 
 exports.routes=router;
