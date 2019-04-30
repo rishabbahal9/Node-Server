@@ -1,0 +1,5 @@
+{
+    "env":{
+        "MONGODB_LINK":"mongodb+srv://rishabbahal:KGWpFN9LlkC8ImW7@rishab999-nhaqy.mongodb.net/walmart?retryWrites=true"
+    }
+}

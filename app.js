@@ -37,11 +37,12 @@ app.use((req,res,next)=>{
 });
 
 
-const server=http.createServer(app);
+//const server=http.createServer(app);
 
-mongoose.connect('mongodb+srv://rishabbahal:KGWpFN9LlkC8ImW7@rishab999-nhaqy.mongodb.net/walmart?retryWrites=true',{useNewUrlParser: true})
+//mongoose.connect('mongodb+srv://rishabbahal:KGWpFN9LlkC8ImW7@rishab999-nhaqy.mongodb.net/walmart?retryWrites=true',{useNewUrlParser: true})
+mongoose.connect(process.env.MONGODB_LINK,{useNewUrlParser: true})
 .then(()=>{
     console.log('Listening to port '+port+':...');
-    app.listen(port)
+    app.listen(process.env.PORT || port)
     })
 .catch(err=>{console.log(err);throw err;})
